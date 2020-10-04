@@ -34,7 +34,6 @@ section '.data' data readable writable
         strVecB        db 'VectorB: ', 10, 0
 
         vec_size     dd 0
-        sum          dd 0
         i            dd ?
         tmp1         dd ?
         tmp2         dd ?
@@ -163,7 +162,7 @@ proc PairSumVec
                 cmp ecx, [vec_size]
                 je endPairSumLoop      ; to end of loop
 
-                mov eax, [sum]
+                xor eax, eax
                 add eax, [ebx]         ;current element from vector
                 add eax, [ebx + 4]     ;next element from vector
                 mov [edx], eax         ;append to vecB
